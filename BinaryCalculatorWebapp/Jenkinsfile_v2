@@ -1,9 +1,9 @@
 pipeline {
   environment {
-    //PROJECT = "REPLACE_WITH_YOUR_PROJECT_ID"
+    PROJECT = "jenkinslab-418900"
 	PROJECT = "green-tract-379622"
     APP_NAME = "binary-calculator2"
-	//CLUSTER = "REPLACE_WITH_YOUR_CLUSTER_NAME"
+CLUSTER = " autopilot-cluster-1"
     CLUSTER = "sofe3980u"
     CLUSTER_ZONE = "northamerica-northeast1-b"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
