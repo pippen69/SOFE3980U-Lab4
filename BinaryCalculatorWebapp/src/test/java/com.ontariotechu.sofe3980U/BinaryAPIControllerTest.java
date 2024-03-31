@@ -48,4 +48,25 @@ public class BinaryAPIControllerTest {
 			.andExpect(MockMvcResultMatchers.jsonPath("$.result").value(10001))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.operator").value("add"));
     }
+    @Test
+    public void testMultiplicationOperator() throws Exception {
+        this.mvc.perform(get("/add").param("operand1", "1010").param("operand2", "11"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("1101"));
+    }
+
+    @Test
+    public void testBitwiseAndOperator() throws Exception {
+        this.mvc.perform(get("/add").param("operand1", "1101").param("operand2", "1010"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("10111"));
+    }
+
+    @Test
+    public void testBitwiseOrOperator() throws Exception {
+        this.mvc.perform(get("/add").param("operand1", "1101").param("operand2", "1010"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("10111"));
+    }
+
 }
