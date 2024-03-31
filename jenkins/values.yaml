@@ -1,32 +1,32 @@
 controller:
   installPlugins:
-    - kubernetes:latest
-    - workflow-job:latest
-    - workflow-aggregator:latest
-    - credentials-binding:latest
-    - git:latest
-    - google-oauth-plugin:latest
-    - google-source-plugin:latest
-    - google-kubernetes-engine:latest
-    - google-storage-plugin:latest
+    - kubernetes:1.32.0       # Specify plugin versions instead of using "latest"
+    - workflow-job:2.44        # Example plugin versions, replace with actual versions
+    - workflow-aggregator:2.8
+    - credentials-binding:3.5
+    - git:4.11
+    - google-oauth-plugin:1.6
+    - google-source-plugin:0.3
+    - google-kubernetes-engine:0.8
+    - google-storage-plugin:1.6
   resources:
     requests:
-      cpu: "50m"
-      memory: "1024Mi"
+      cpu: "100m"              # Adjust resource requests based on workload
+      memory: "2048Mi"
     limits:
       cpu: "1"
-      memory: "3500Mi"
-  javaOpts: "-Xms3500m -Xmx3500m"
-  serviceType: LoadBalancer
+      memory: "4096Mi"         # Adjust memory limits based on workload
+  javaOpts: "-Xms2048m -Xmx4096m"  # Adjust Java memory settings based on available memory
+  serviceType: LoadBalancer     # Verify if LoadBalancer is the desired service type
 agent:
   resources:
     requests:
-      cpu: "500m"
-      memory: "256Mi"
+      cpu: "250m"               # Adjust resource requests based on workload
+      memory: "512Mi"
     limits:
       cpu: "1"
-      memory: "512Mi"
+      memory: "1024Mi"          # Adjust memory limits based on workload
 persistence:
-  size: 100Gi
+  size: 100Gi                    # Adjust storage size based on Jenkins data volume
 serviceAccount:
-  name: cd-jenkins
+  name: cd-jenkins               # Verify if this service account has necessary permissions
