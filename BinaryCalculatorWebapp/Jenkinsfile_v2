@@ -1,13 +1,12 @@
 pipeline {
   environment {
     PROJECT = "jenkinslab-418900"
-	PROJECT = "green-tract-379622"
     APP_NAME = "binary-calculator2"
-CLUSTER = " autopilot-cluster-1"
     CLUSTER = "sofe3980u"
     CLUSTER_ZONE = "northamerica-northeast1-b"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
-    JENKINS_CRED = "green-tract-379622"
+   JENKINS_CRED = "hamza"
+
   }
   
 agent {
@@ -26,7 +25,7 @@ spec:
   containers:
   - name: gcloud
     image: gcr.io/cloud-builders/gcloud
-    //image: google/cloud-sdk:latest
+    image: google/cloud-sdk:latest
     command:
     - cat
     tty: true
